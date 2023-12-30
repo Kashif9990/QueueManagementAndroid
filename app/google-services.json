@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "298996593446",
+    "project_id": "quesystem-c4d6f",
+    "storage_bucket": "quesystem-c4d6f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:298996593446:android:06b95484391a981d39c7e7",
+        "android_client_info": {
+          "package_name": "com.example.antitheftapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtEtuCYF-9M8KRdAWoLOkJpqZjWPh72mw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -23,7 +23,11 @@ class MainActivity : AppCompatActivity() {
             val password = passwordEditText.text.toString()
             // You can add your authentication logic here.
             // For simplicity, we'll check for a hardcoded username and password.
-            if (username == "naveed" && password == "kohat") {
+
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+
+            /*if (username == "naveed" && password == "kohat") {
                 // Authentication successful, open the next activity (e.g., MainActivity)
                 val intent = Intent(this, LoginActivity::class.java)
                 startActivity(intent)
@@ -32,7 +36,7 @@ class MainActivity : AppCompatActivity() {
                 // Authentication failed, display an error message or toast.
                 // For simplicity, we'll show a toast message.
                 showToast("Invalid username or password")
-            }
+            }*/
         }
     }
 
