@@ -17,8 +17,7 @@ import com.google.firebase.database.ValueEventListener
 class DashboardActivity : AppCompatActivity() {
 
     private lateinit var textViewName: TextView
-    var database = FirebaseDatabase.getInstance()
-    var myRef = database.getReference("Users")
+    var myRef = FirebaseDatabase.getInstance().getReference("Users")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,8 +39,10 @@ class DashboardActivity : AppCompatActivity() {
             object : ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
                     //here you will get the data
-                    val name: String = dataSnapshot.getValue(UserModel::class.java)?.name ?: ""
-                    val email: String = dataSnapshot.getValue(UserModel::class.java)?.email ?: ""
+                    val userModel = dataSnapshot.getValue(UserModel::class.java)
+                    val name: String = userModel!!.name
+                    val email: String = userModel!!.email
+
                     Log.d("Datasnapshot", "$email $name")
 
                     textViewName.text = "Hello $name \n $email"
