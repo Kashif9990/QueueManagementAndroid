@@ -53,10 +53,5 @@ class DashboardActivity : AppCompatActivity() {
             })
 
 
-
-        //textViewName.text =
-
-
-
     }
 }
