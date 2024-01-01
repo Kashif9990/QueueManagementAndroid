@@ -22,6 +22,15 @@ class LoginActivity : AppCompatActivity() {
         passwordEditText = findViewById(R.id.passwordEditText)
         loginButton = findViewById(R.id.loginButton)
 
+
+        if (FirebaseAuth.getInstance().currentUser != null) {
+            val intent = Intent(this, DashboardActivity::class.java)
+            startActivity(intent)
+            finish()
+            return
+        }
+
+
         loginButton.setOnClickListener {
             val username = usernameEditText.text.toString()
             val password = passwordEditText.text.toString()
@@ -44,7 +53,7 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     // Login successful
-                    val user = auth.currentUser
+                    //val user = auth.currentUser
                     val intent = Intent(this, DashboardActivity::class.java)
                     startActivity(intent)
                     finish()
