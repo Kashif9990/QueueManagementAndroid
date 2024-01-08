@@ -22,7 +22,7 @@
         android:id="@+id/textViewName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Name"
+        tools:text="Title"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,26 +30,15 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
-        android:id="@+id/textViewExpectedH"
-        app:layout_constraintTop_toBottomOf="@+id/textViewName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:text="Expected Wait Time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <TextView
         android:id="@+id/textViewCurrentH"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:text="Current Token"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewExpected" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewName" />
 
     <TextView
         android:id="@+id/textViewYourTokenH"
@@ -60,20 +49,6 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toBottomOf="@+id/textViewCurrentH"
         app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/textViewExpected"
-        app:layout_constraintTop_toBottomOf="@+id/textViewExpectedH"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="10dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        android:text="0 mins"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        android:textColor="@color/expected_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
 
 
     <TextView
@@ -103,37 +78,54 @@
         app:layout_constraintStart_toStartOf="@+id/textViewYourTokenH"
         android:text="0" />
 
-    <TextView
-        android:id="@+id/textViewNoQuese"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:text="You are not in any Queue"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:layout_marginTop="20dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
-    <Button
-        android:id="@+id/buttonJoinCreate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Join a Queue"
-        android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/textViewNoQuese"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
+    <LinearLayout
+        android:id="@+id/linearButtons"
+        android:orientation="horizontal"
+        android:layout_margin="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCurrentToken"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_weight="1"
+            android:id="@+id/buttonJoinCreate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:text="Call Next" />
+
+        <Button
+            android:layout_marginStart="5dp"
+            android:layout_weight="1"
+            android:id="@+id/buttonJoinCreate2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Call Next"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageViewQR"
+        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toBottomOf="@+id/linearButtons"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/common_google_signin_btn_text_light_disabled"
+        android:layout_width="200dp"
+        android:layout_height="200dp"/>
 
     <Button
-        android:id="@+id/buttonLogout"
-        android:layout_width="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewQR"
+        android:layout_weight="1"
+        android:id="@+id/buttonCopyId"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Logout"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="@+id/imageViewQR"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewQR"
+        android:text="Copy Queue Id" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

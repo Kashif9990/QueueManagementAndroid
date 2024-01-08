@@ -3,4 +3,7 @@
     <color name="colorPrimary">#fc1727</color>
     <color name="colorPrimaryDark">#bf0212</color>
     <color name="colorAccent">#D33068</color>
+    <color name="expected_time">#A3A115</color>
+    <color name="current_token">#61AF05</color>
+    <color name="my_token">#ffcc0000</color>
 </resources>
