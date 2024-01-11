@@ -2,7 +2,6 @@ package com.example.antitheftapp
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.opengl.Visibility
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -34,7 +33,7 @@ class DashboardActivity : AppCompatActivity() {
     var myRef = database.getReference("Users")
 
 
-    private var isAdmin = true
+    private var hasNotJoined = false
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -80,17 +79,23 @@ class DashboardActivity : AppCompatActivity() {
 
         showHideViews()
 
+
+        buttonQueue.setOnClickListener{
+            val intent = Intent(this, JoinQueueActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
     private fun showHideViews() {
-        textViewNameExpectedH.visibility = if (isAdmin) View.GONE else View.VISIBLE
-        textViewNameExpected.visibility = if (isAdmin) View.GONE else View.VISIBLE
-        textViewNameCurrentTokenH.visibility = if (isAdmin) View.GONE else View.VISIBLE
-        textViewNameCurrentToken.visibility = if (isAdmin) View.GONE else View.VISIBLE
-        textViewNameYourTokenH.visibility = if (isAdmin) View.GONE else View.VISIBLE
-        textViewNameYourToken.visibility = if (isAdmin) View.GONE else View.VISIBLE
+        textViewNameExpectedH.visibility = if (hasNotJoined) View.GONE else View.VISIBLE
+        textViewNameExpected.visibility = if (hasNotJoined) View.GONE else View.VISIBLE
+        textViewNameCurrentTokenH.visibility = if (hasNotJoined) View.GONE else View.VISIBLE
+        textViewNameCurrentToken.visibility = if (hasNotJoined) View.GONE else View.VISIBLE
+        textViewNameYourTokenH.visibility = if (hasNotJoined) View.GONE else View.VISIBLE
+        textViewNameYourToken.visibility = if (hasNotJoined) View.GONE else View.VISIBLE
 
-        textViewNoQuese.visibility = if (isAdmin) View.VISIBLE else View.GONE
-        buttonQueue.visibility = if (isAdmin) View.VISIBLE else View.GONE
+        textViewNoQuese.visibility = if (hasNotJoined) View.VISIBLE else View.GONE
+        buttonQueue.visibility = if (hasNotJoined) View.VISIBLE else View.GONE
     }
 }

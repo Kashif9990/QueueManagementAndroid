@@ -15,6 +15,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var loginButton: Button
     val auth: FirebaseAuth = FirebaseAuth.getInstance()
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -32,6 +33,11 @@ class LoginActivity : AppCompatActivity() {
 
 
         loginButton.setOnClickListener {
+            if(Utils.IS_DEMO){
+                //Only for DEMO
+                proceedToNextScreen(true)
+                return@setOnClickListener
+            }
             val username = usernameEditText.text.toString()
             val password = passwordEditText.text.toString()
             // You can add your authentication logic here.
@@ -46,6 +52,15 @@ class LoginActivity : AppCompatActivity() {
                 showToast("Invalid username or password")
             }
         }
+
+
+
+        findViewById<Button>(R.id.signupButton).setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            val intent = Intent(this, SignupActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
     fun loginUser(email: String, password: String) {
@@ -53,10 +68,8 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     // Login successful
-                    //val user = auth.currentUser
-                    val intent = Intent(this, DashboardActivity::class.java)
-                    startActivity(intent)
-                    finish()
+                    //Todo isAdmin Logic here
+                    proceedToNextScreen(true)
 
                 } else {
                     showToast("Sorry, Authentication Failed, please try again!")
@@ -64,6 +77,12 @@ class LoginActivity : AppCompatActivity() {
                     Log.w("Login", "signInWithEmail:failure", task.exception)
                 }
             }
+    }
+
+    private fun proceedToNextScreen(isAdmin: Boolean) {
+        val intent = Intent(this, if(isAdmin) AdminDashboardActivity::class.java else DashboardActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 
     private fun showToast(message: String) {

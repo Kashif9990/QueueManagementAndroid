@@ -45,7 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
-        android:text="Your Token"
+        android:text="Total Token"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toBottomOf="@+id/textViewCurrentH"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -126,6 +126,18 @@
         app:layout_constraintStart_toStartOf="@+id/imageViewQR"
         app:layout_constraintEnd_toEndOf="@+id/imageViewQR"
         android:text="Copy Queue Id" />
+
+
+    <Button
+        android:id="@+id/buttonLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

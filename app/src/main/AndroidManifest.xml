@@ -18,8 +18,20 @@
         <activity
             android:name=".DashboardActivity"
             android:exported="false" />
+
         <activity
-            android:name=".Forget"
+            android:name=".AdminDashboardActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".AddQueueActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".JoinQueueActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ForgotPasswordActivity"
             android:exported="false" />
         <activity
             android:name=".SignupActivity"

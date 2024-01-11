@@ -4,11 +4,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 
-class Forget : AppCompatActivity() {
+class ForgotPasswordActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_forget)
+        setContentView(R.layout.activity_forgot_password)
         val btnSendEmail: Button = findViewById(R.id.btnSendEmail)
         val btnGoBack: Button = findViewById(R.id.btnGoBack)
         val editTextEmail: EditText = findViewById(R.id.editTextEmail)
@@ -31,6 +32,6 @@ class Forget : AppCompatActivity() {
 
     private fun showToast(message: String) {
         // Display a Toast message
-        Toast.makeText()
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 }
