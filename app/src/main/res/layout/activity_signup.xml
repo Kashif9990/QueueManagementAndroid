@@ -92,12 +92,21 @@
         android:id="@+id/btnRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editTextAge"
-        android:layout_marginTop="50dp"
+        android:layout_below="@+id/switchAdmin"
+        android:layout_marginTop="20dp"
         android:text="@string/register"
         tools:ignore="VisualLintButtonSize" />
 
-
+    <Switch
+        android:id="@+id/switchAdmin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextAge"
+        android:layout_marginTop="20dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:text="Signup as Admin"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
 
 
 </RelativeLayout>

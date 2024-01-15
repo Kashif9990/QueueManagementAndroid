@@ -18,6 +18,7 @@
         android:autofillHints=""
         android:hint="@string/username_email"
         android:inputType=""
+        android:text="sr.naveed99@gmail.com"
         android:minHeight="48dp"
         android:textColorHint="#424242"
         tools:ignore="TextContrastCheck" />
@@ -31,6 +32,7 @@
         android:hint="@string/password"
         android:inputType="textPassword"
         android:minHeight="48dp"
+        android:text="123456"
         android:textColorHint="#0A0A0B"
         tools:ignore="InvalidId,TextContrastCheck" />
 
