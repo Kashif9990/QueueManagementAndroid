@@ -39,7 +39,7 @@
         android:text="Create Queue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextAverageTime" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextQueueId" />
 
     <EditText
         android:id="@+id/editTextName"
@@ -55,7 +55,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewQueueName" />
 
     <EditText
-        android:id="@+id/editTextAverageTime"
+        android:id="@+id/editTextQueueId"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"

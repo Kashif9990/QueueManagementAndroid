@@ -2,16 +2,15 @@ package com.example.antitheftapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import com.example.antitheftapp.helper.PreferenceHelper
 import com.example.antitheftapp.helper.QueueDetail
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.database
+import java.util.Calendar
 
 class AddQueueActivity : AppCompatActivity() {
 
@@ -23,7 +22,7 @@ class AddQueueActivity : AppCompatActivity() {
         setContentView(R.layout.activity_queue_add)
 
         nameEditText = findViewById(R.id.editTextName)
-        averageTimeEditText = findViewById(R.id.editTextAverageTime)
+        averageTimeEditText = findViewById(R.id.editTextQueueId)
 
         findViewById<Button>(R.id.buttonCreate).setOnClickListener {
             if (nameEditText.text.toString().isNotEmpty() && averageTimeEditText.text.toString().isNotEmpty()){
@@ -32,7 +31,7 @@ class AddQueueActivity : AppCompatActivity() {
                 val id = FirebaseDatabase.getInstance().getReference("Queues").push().key ?: userId
                 val name = nameEditText.text.toString()
                 val avgTime = averageTimeEditText.text.toString().toInt()
-                val queueDetail = QueueDetail(userId = userId, name = name, averageTime = avgTime)
+                val queueDetail = QueueDetail(id = getUID(10),userId = userId, name = name, averageTime = avgTime)
 
                 Firebase.database.reference.child("Queues").child(id).setValue(queueDetail)
                     .addOnCompleteListener {
@@ -48,7 +47,24 @@ class AddQueueActivity : AppCompatActivity() {
             }
 
         }
+    }
 
+    /**
+     * @param digit is to define how many Unique digit you wnat
+     * Such as 8, 10, 12 etc
+     * But digit must be Min 8 Max 12
+     */
+    fun getUID(digit:Int): String {
+        var currentMilliSeconds:String = ""+ Calendar.getInstance().timeInMillis
+        var genDigit:Int = digit
+        if(genDigit<8)
+            genDigit = 8
 
+        if(genDigit>12)
+            genDigit = 12
+
+        var cut = currentMilliSeconds.length - genDigit
+        currentMilliSeconds = currentMilliSeconds.substring(cut);
+        return currentMilliSeconds.toLong().toString()
     }
 }

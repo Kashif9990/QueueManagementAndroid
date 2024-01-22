@@ -24,19 +24,20 @@ class SignupActivity : AppCompatActivity() {
         dbRef = FirebaseDatabase.getInstance().getReference("Users")
         val btnRegister: Button = findViewById(R.id.btnRegister)
         // Retrieve data from EditText fields
-        val name = findViewById<EditText>(R.id.editTextName).text.toString()
-        val email = findViewById<EditText>(R.id.editTextEmail).text.toString()
-        val password = findViewById<EditText>(R.id.editTextPassword).text.toString()
-        //val email = findViewById<EditText>(R.id.editTextVerifyPassword).text.toString()
-        val address = findViewById<EditText>(R.id.editTextAddress).text.toString()
-        val contact = findViewById<EditText>(R.id.editTextContact).text.toString()
-        val age = findViewById<EditText>(R.id.editTextAge).text.toString().toInt()
-
 
 
         btnRegister.setOnClickListener {
             val isAdmin = findViewById<Switch>(R.id.switchAdmin).isChecked
-            registerUser(email,password,name,contact,age,address, isAdmin)
+            val name = findViewById<EditText>(R.id.editTextName).text.toString()
+            val email = findViewById<EditText>(R.id.editTextEmail).text.toString()
+            val password = findViewById<EditText>(R.id.editTextPassword).text.toString()
+            //val email = findViewById<EditText>(R.id.editTextVerifyPassword).text.toString()
+            val address = findViewById<EditText>(R.id.editTextAddress).text.toString()
+            val contact = findViewById<EditText>(R.id.editTextContact).text.toString()
+            val age = findViewById<EditText>(R.id.editTextAge).text.toString()
+
+            val ageValue = (if(age.isEmpty()){ "0" }else {age}).toInt()
+            registerUser(email,password,name,contact,ageValue,address, isAdmin)
         }
 
         // I WILL Perform registration logic here BY NAVEED

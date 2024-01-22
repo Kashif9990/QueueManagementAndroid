@@ -28,6 +28,7 @@ class LoginActivity : AppCompatActivity() {
         loginButton = findViewById(R.id.loginButton)
 
         PreferenceHelper.init(this)
+//        PreferenceHelper.set("isAdmin",true)
         val isAdmin : Boolean = PreferenceHelper.get("isAdmin",false)
 
         if(isAdmin){
@@ -78,7 +79,6 @@ class LoginActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // Login successful
                     val user = auth.currentUser!!
-                    //Todo isAdmin Logic here
                     getUserDate(user.uid)
                 //proceedToNextScreen(true)
 
